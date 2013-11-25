@@ -20,6 +20,12 @@ before_filter :authenticate_user!
 		@pic = Pic.find(params[:id])
 	end
 
+	def destroy
+		@pic = Pic.find(params[:id])
+		@pic.destroy
+		redirect_to pics_path
+	end
+
 private
 	def pic_params
 		params.require(:pic).permit(:caption, :image)	

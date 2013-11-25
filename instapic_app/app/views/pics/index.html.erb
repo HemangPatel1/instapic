@@ -3,7 +3,11 @@
   <% @pics.each do |pic| %>
 <table>
     <tr>
-      <td><%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %></td>
+      <td>
+      <a href="<%= pic_path(pic) %>">
+        <%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %>
+      </a>
+      </td>
     </tr>
     <tr>
       <td><center><em><%= pic.caption %><br>
