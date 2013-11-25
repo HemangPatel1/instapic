@@ -47,8 +47,6 @@ test: &test
   encoding: unicode
   database: instapic_app_test
   pool: 5
-  username: instapic_app
-  password:
   host: localhost
 
 production:
