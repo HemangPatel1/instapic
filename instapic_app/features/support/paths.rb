@@ -19,6 +19,9 @@ module NavigationHelpers
     when /the login\s?page/
       '/users/sign_in'
 
+    when /the new pics\s?page/
+      '/pics/new'
+
     # when /the sign\s?in\s?page/
     #   '/sessions/new'
 

@@ -1,0 +1,13 @@
+<h1>All Pics</h1>
+ 
+<table>
+  <tr>
+    <th>Captions</th>
+  </tr>
+ 
+  <% @pics.each do |pic| %>
+    <tr>
+      <td><%= pic.caption %></td>
+    </tr>
+  <% end %>
+</table>
