@@ -8,3 +8,12 @@ Feature: Signing Up
 			And I follow "Sign Up"
 			Then I should see "Create Your Instapic Account"
 			
+	Scenario: Signing up successfully
+			Given I am on the sign up page
+			When I fill in the form correctly
+			Then I should see "Welcome! You have signed up successfully."
+
+	Scenario: Signing up UNsuccessfully
+			Given I am on the sign up page
+			When I fill in the form incorrectly
+			Then I should see "error"

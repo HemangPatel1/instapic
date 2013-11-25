@@ -13,8 +13,11 @@ module NavigationHelpers
     when /the home\s?page/
       'welcome/index'
     
-    # when /the sign\s?up\s?page/
-    #   '/users/new'
+    when /the sign\s?up\s?page/
+      '/users/sign_up'
+
+    when /the login\s?page/
+      '/users/sign_in'
 
     # when /the sign\s?in\s?page/
     #   '/sessions/new'
