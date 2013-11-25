@@ -1,13 +1,12 @@
 <h1>All Pics</h1>
  
-<table>
-  <tr>
-    <th>Captions</th>
-  </tr>
- 
   <% @pics.each do |pic| %>
+<table>
     <tr>
-      <td><%= pic.caption %></td>
+      <td><%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %></td>
     </tr>
+    <tr>
+      <td><center><%= pic.caption %></center></td>
+    </tr>    
   <% end %>
 </table>

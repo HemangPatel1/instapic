@@ -22,7 +22,7 @@ before_filter :authenticate_user!
 
 private
 	def pic_params
-		params.require(:pic).permit(:caption)	
+		params.require(:pic).permit(:caption, :image)	
 	end
 
 end
