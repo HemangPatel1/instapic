@@ -2,5 +2,5 @@
 <p><%= image_tag @pic.image.url(:medium) , class: 'uploaded-pic' %></p>
 <p>Created <%= time_ago_in_words(@pic.created_at) %> ago</p>
 
-<p><%= link_to 'Destroy', pic_path(@pic),
+<p><%= link_to 'Delete', pic_path(@pic),
                     method: :delete, data: { confirm: 'Are you sure?' } %></p>
