@@ -12,3 +12,8 @@ Feature: Login
 			Given I am on the login page
 			When I fill in the login form correctly
 			Then I should see "Signed in successfully."
+
+	Scenario: Logging In INcorrectly
+			Given I am on the login page
+			When I fill in the login form incorrectly
+			Then I should see "Invalid"			
