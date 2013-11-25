@@ -6,7 +6,9 @@
       <td><%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %></td>
     </tr>
     <tr>
-      <td><center><%= pic.caption %></center></td>
-    </tr>    
+      <td><center><em><%= pic.caption %><br>
+        Posted <%= time_ago_in_words(pic.created_at) %> ago
+      </em></center></td>
+    </tr>
   <% end %>
 </table>

@@ -1,2 +1,3 @@
 <p><%= @pic.caption %></p>
 <p><%= image_tag @pic.image.url(:medium) , class: 'uploaded-pic' %></p>
+<p>Created <%= time_ago_in_words(@pic.created_at) %> ago</p>
