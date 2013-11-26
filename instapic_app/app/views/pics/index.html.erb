@@ -11,7 +11,7 @@
       </td>
     </tr>
     <tr>
-      <td><center><em><%= pic.caption %><br>
+      <td><center><em><%= pic.caption %> by <%= pic.user.email if pic.user %><br>
         Posted <%= time_ago_in_words(pic.created_at) %> ago
       </em></center></td>
     </tr>
