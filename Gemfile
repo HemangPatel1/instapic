@@ -15,7 +15,7 @@ gem 'devise'
 gem 'aws-sdk'
 
 group :production do
- gem 'rails_12_factor'
+ gem 'rails_12factor'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
