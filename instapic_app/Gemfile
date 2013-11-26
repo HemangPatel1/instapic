@@ -12,6 +12,12 @@ gem "paperclip", "~> 3.0"
 
 gem 'devise'
 
+gem 'aws-sdk'
+
+group :production do
+ gem 'rails_12_factor'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
