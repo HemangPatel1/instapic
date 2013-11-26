@@ -1,8 +1,8 @@
 <h1>All Pics</h1>
 <p><%= link_to 'New Pic', new_pic_path %></p>                    
-<p><%= link_to 'My Pics', mypics_pics_path %></p>
+<p><%= link_to 'All Pics', pics_path %></p>                    
  
-  <% @pics.each do |pic| %>
+  <% @pic.each do |pic| %>
 <table>
     <tr>
       <td>

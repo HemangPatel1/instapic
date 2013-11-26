@@ -1,10 +1,10 @@
 class PicsController < ApplicationController
 
-before_filter :authenticate_user!
+before_filter :authenticate_user!, only: [:create, :destroy]
 before_action :check_permission, only: [:destroy]
 
 	def index
-		@pics = Pic.all
+		@pics = Pic.all.order("pics.created_at desc")
 	end
 
 	def new
@@ -25,6 +25,10 @@ before_action :check_permission, only: [:destroy]
 		@pic = Pic.find(params[:id])
 		@pic.destroy
 		redirect_to pics_path
+	end
+
+	def mypics
+		@pic = Pic.where(user_id: current_user).order("pics.created_at desc")
 	end
 
 private

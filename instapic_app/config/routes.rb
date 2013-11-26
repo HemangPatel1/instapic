@@ -1,7 +1,12 @@
 InstapicApp::Application.routes.draw do
 
-  devise_for :users
-  resources :pics
+  devise_for :users, :controllers => { :registrations => :registrations }
+
+  resources :pics do
+    collection do
+      get 'mypics'
+    end
+  end
 
   get "welcome/index"
   # The priority is based upon order of creation: first created -> highest priority.
