@@ -5,6 +5,11 @@
   <% @pics.each do |pic| %>
 <table>
     <tr>
+      <td style="vertical-align: top; width: 130px;">
+        <strong><%= pic.user.username if pic.user %></strong><br>
+        <small><%= time_ago_in_words(pic.created_at) %> ago</small>
+      </td>
+
       <td>
       <a href="<%= pic_path(pic) %>">
         <%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %>
@@ -12,9 +17,15 @@
       </td>
     </tr>
     <tr>
-      <td><center><em><%= pic.caption %> by @<%= pic.user.username if pic.user %><br>
-        Posted <%= time_ago_in_words(pic.created_at) %> ago
-      </em></center></td>
+      <td>
+      </td>
+      <td>
+        <center>
+          <em><%= pic.caption %></em>
+          <% pic.tags.each do |tag| %><%= tag.tag %> <% end %>
+          <br><br><br>
+        </center>
+      </td>
     </tr>
   <% end %>
 </table>

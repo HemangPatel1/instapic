@@ -1,7 +1,16 @@
-<p><%= @pic.caption %></p>
+<center>
+<p><strong><%= @pic.user.username if @pic.user %></strong><br>
+Created <%= time_ago_in_words(@pic.created_at) %> ago</p>
 <p><%= image_tag @pic.image.url(:medium) , class: 'uploaded-pic' %></p>
-<p>Created <%= time_ago_in_words(@pic.created_at) %> ago</p>
+<p><%= @pic.caption %></p>
+<br>
+<p>Tags:
+<% @pic.tags.each do |tag| %>
+<%= tag.tag %>
+<% end %>
+</p>
 
 <p><%= link_to 'Delete', pic_path(@pic),
                     method: :delete, data: { confirm: 'Are you sure?' } %></p>
 <p><%= link_to 'Back', pics_path %></p>                    
+</center>

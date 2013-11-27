@@ -42,7 +42,7 @@ private
 	end
 
 	def pic_params
-		params.require(:pic).permit(:caption, :image)	
+		params.require(:pic).permit(:caption, :image, :tag)	
 	end
 
 end
