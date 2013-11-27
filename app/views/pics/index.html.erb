@@ -3,10 +3,10 @@
 <p><%= link_to 'My Pics', mypics_pics_path %></p>
 
 
-<%= form_tag(pics_path, :method => "get") do %>
+<form action="<%= pics_path %>" method="get">
   <%= text_field_tag :search, params[:search], placeholder: "Search Pics" %>
   <%= submit_tag "Search", :name => nil %>
-<% end %>
+</form>
 
 
  
