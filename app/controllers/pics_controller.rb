@@ -4,7 +4,11 @@ before_filter :authenticate_user!, only: [:create, :destroy]
 before_action :check_permission, only: [:destroy]
 
 	def index
-		@pics = Pic.all.order("pics.created_at desc")
+		if params[:search]
+			@pics = Pic.search(params[:search]).order("pics.created_at desc")
+		else
+			@pics = Pic.all.order("pics.created_at desc")
+		end
 	end
 
 	def new
@@ -30,6 +34,7 @@ before_action :check_permission, only: [:destroy]
 	def mypics
 		@pic = Pic.where(user_id: current_user).order("pics.created_at desc")
 	end
+
 
 private
 	def check_permission

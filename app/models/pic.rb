@@ -18,4 +18,16 @@ class Pic < ActiveRecord::Base
   		end
   	end
 
+ #  	def self.search(query)
+	# 	Pic.where("tag like ?", "%#{query}%") 
+	# end
+
+	  def self.search(search)
+	    if search
+	    	where('tags.tag ILIKE ?', "%#{search}%").joins(:tags)
+	    else
+	      scoped
+	    end
+	  end
+
 end
