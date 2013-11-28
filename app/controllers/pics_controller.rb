@@ -18,6 +18,9 @@ before_action :check_permission, only: [:destroy]
 	def create
 		@pic = Pic.new((pic_params).merge(user: current_user))
 		@pic.save
+		flash[:notice] = "Photo Added Successfully!"
+		WebsocketRails[:pics].trigger 'new', 
+					{ caption: @pic.caption, image_url: @pic.image.url(:medium)}
 		redirect_to @pic
 	end
 
