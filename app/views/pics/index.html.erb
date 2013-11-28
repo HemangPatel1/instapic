@@ -8,7 +8,6 @@
   <%= submit_tag "Search", :name => nil %>
 </form>
 
-
  
   <% @pics.each do |pic| %>
 <table>
@@ -30,7 +29,8 @@
       <td>
         <center>
           <em><%= pic.caption %></em>
-          <% pic.tags.each do |tag| %><%= tag.tag %> <% end %>
+          <% pic.tags.each do |tag| %>
+          <%= link_to tag.tag, tag %> <% end %>
           <br><br><br>
         </center>
       </td>

@@ -2,6 +2,7 @@ InstapicApp::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => :registrations }
 
+  resources :tags
   resources :pics do
     collection do
       get 'mypics'

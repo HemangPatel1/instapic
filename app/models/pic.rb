@@ -14,20 +14,16 @@ class Pic < ActiveRecord::Base
 
   	def tag=(tags_string)
   		tags_string.split(' ').each do |description|
-  			self.tags << Tag.new(tag: description)
+  			self.tags << Tag.find_or_create_by(tag: description)
   		end
   	end
 
- #  	def self.search(query)
-	# 	Pic.where("tag like ?", "%#{query}%") 
-	# end
-
-	  def self.search(search)
-	    if search
-	    	where('tags.tag ILIKE ?', "%#{search}%").joins(:tags)
-	    else
-	      scoped
-	    end
+	def self.search(search)
+	  if search
+	  	where('tags.tag ILIKE ?', "%#{search}%").joins(:tags)
+	  else
+	    scoped
 	  end
+	end
 
 end

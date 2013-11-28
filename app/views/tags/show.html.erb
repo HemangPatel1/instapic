@@ -1,0 +1,31 @@
+<h1><%= @tag.tag %></h1>
+
+<% @tag.pics.each do |pic| %>
+<table>
+    <tr>
+      <td style="vertical-align: top; width: 130px;">
+       
+        <small><%= time_ago_in_words(pic.created_at) %> ago</small>
+      </td>
+
+      <td>
+      <a href="<%= pic_path(pic) %>">
+        <%= image_tag pic.image.url(:medium) , class: 'uploaded-pic' %>
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td>
+        <center>
+          <em><%= pic.caption %></em>
+          <% pic.tags.each do |tag| %><%= tag.tag %> <% end %>
+          <br><br><br>
+        </center>
+      </td>
+    </tr>
+</table>
+<% end %>
+
+

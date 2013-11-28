@@ -9,8 +9,13 @@ class User < ActiveRecord::Base
   			:case_sensitive => false
   			}
 
+  has_attached_file :avatar, :styles => { 
+        :medium => "300x300>", :thumb => "100x100>" }, 
+        :default_url => "/images/:style/missing.png"
+  
   has_many :pics
-  attr_accessor :login
+
+  attr_accessor :login 
 
 
     def self.find_first_by_auth_conditions(warden_conditions)
