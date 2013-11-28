@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-connection = new WebSocketRails('localhost:3000/websocket')
+connection = new WebSocketRails(window.location.host + '/websocket')
 channel = connection.subscribe('pics')
 
 channel.bind 'new', (pic) ->
