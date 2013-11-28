@@ -8,6 +8,10 @@ group :test, :development do
   gem 'factory_girl'
 end
 
+gem 'websocket-rails'
+
+gem 'thin'
+
 gem "paperclip", "~> 3.0"
 
 gem 'devise'
@@ -23,8 +27,6 @@ gem 'rails', '4.0.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-
-gem 'thin'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
