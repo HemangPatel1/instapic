@@ -3,6 +3,7 @@ class PicsController < ApplicationController
 before_filter :authenticate_user!, only: [:create, :destroy]
 before_action :check_permission, only: [:destroy]
 
+
 	def index
 		if params[:search]
 			@pics = Pic.search(params[:search]).order("pics.created_at desc")
@@ -19,8 +20,6 @@ before_action :check_permission, only: [:destroy]
 		@pic = Pic.new((pic_params).merge(user: current_user))
 		@pic.save
 		flash[:notice] = "Photo Added Successfully!"
-		WebsocketRails[:pics].trigger 'new', 
-					{ caption: @pic.caption, image_url: @pic.image.url(:medium)}
 		redirect_to @pic
 	end
 

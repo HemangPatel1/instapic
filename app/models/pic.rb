@@ -1,4 +1,6 @@
 class Pic < ActiveRecord::Base
+	include ActionView::Helpers::DateHelper
+
 	belongs_to :user
 	has_and_belongs_to_many :tags
 	# validates :caption, presence: true, 
@@ -7,6 +9,9 @@ class Pic < ActiveRecord::Base
   					:styles => { :medium => "300x300>", :thumb => "100x100>" }, 
   					:default_url => "/images/:style/missing.png"
   	validates :image, :attachment_presence => true
+
+  	after_save :trigger_websockets
+
 
   	def tag
   		''
@@ -24,6 +29,15 @@ class Pic < ActiveRecord::Base
 	  else
 	    scoped
 	  end
+	end
+
+	def trigger_websockets
+		WebsocketRails[:pics].trigger 'new', {
+			caption: caption,
+			image_url: image.url(:medium),
+			username: user.username,
+			created_at: time_ago_in_words(created_at),
+			tags: tags.map(&:tag).join(" ") }
 	end
 
 end

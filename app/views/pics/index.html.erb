@@ -15,7 +15,7 @@
       <th style="vertical-align: top; width: 130px;">
         <strong><%= pic.user.username if pic.user %></strong><br>
         <small><%= time_ago_in_words(pic.created_at) %> ago</small>
-        <h5><em><%= pic.caption %></em></h5>
+        <h5 class="captioning"><em><%= pic.caption %></em></h5>
       </th>
 
       <th>
@@ -29,7 +29,7 @@
       </th>
       <th>
         <center>
-          <p><% pic.tags.each do |tag| %>
+          <p class="tags"><% pic.tags.each do |tag| %>
           <%= link_to tag.tag, tag %> 
           <% end %>
           </p>
