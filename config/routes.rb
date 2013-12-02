@@ -1,6 +1,5 @@
 InstapicApp::Application.routes.draw do
 
-  get "chat/index"
   devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :tags
@@ -18,6 +17,7 @@ InstapicApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'welcome#index'
 
+  get "chat/index"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
