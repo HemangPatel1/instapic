@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   			}
 
   has_attached_file :avatar, :styles => { 
-        :medium => "300x300>", :thumb => "100x100>" }, 
+        :medium => "300x300>", :thumb => "100x100>", :tiny => "40x40>" }, 
         :default_url => "/images/:style/missing.png"
   
   has_many :pics
