@@ -1,5 +1,6 @@
 InstapicApp::Application.routes.draw do
 
+  get "chat/index"
   devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :tags

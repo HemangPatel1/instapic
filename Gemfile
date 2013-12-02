@@ -8,15 +8,14 @@ group :test, :development do
   gem 'factory_girl'
 end
 
-gem 'websocket-rails'
+gem 'newrelic_rpm'
 
 gem 'thin'
 
 gem "paperclip", "~> 3.0"
-
-gem 'devise'
-
 gem 'aws-sdk'
+gem 'websocket-rails'
+gem 'devise'
 
 group :production do
  gem 'rails_12factor'

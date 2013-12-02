@@ -1,7 +1,7 @@
 <h1>All Pics</h1>
 <p><%= link_to 'New Pic', new_pic_path %></p>                    
 <p><%= link_to 'My Pics', mypics_pics_path %></p>
-
+<h1><%= link_to 'Chat', chat_index_path %></h1>
 
 <form action="<%= pics_path %>" method="get">
   <%= text_field_tag :search, params[:search], placeholder: "Search Pics" %>

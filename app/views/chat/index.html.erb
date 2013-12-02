@@ -1,0 +1,12 @@
+<h1>Chat.</h1>
+
+<div id="chatbox" class="chatbox">
+</div>
+
+<div id="send_message" class="send_message">
+<%= form_tag(chat_index_path, method: "get") do %>
+	<%= label_tag(:chat, "Type message") %>
+	<%= text_field_tag(:chat) %>
+	<%= submit_tag("Send") %>
+<% end %>
+</div>

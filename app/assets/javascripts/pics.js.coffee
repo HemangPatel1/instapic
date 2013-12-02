@@ -6,7 +6,6 @@ connection = new WebSocketRails(window.location.host + '/websocket')
 channel = connection.subscribe('pics')
 
 channel.bind 'new', (pic) ->
-	console.log(pic)
 	$pic = $('.all_pics table:last').clone();
 
 	$pic.find('.captioning').text pic.caption
