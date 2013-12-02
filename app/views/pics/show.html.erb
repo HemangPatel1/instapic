@@ -9,6 +9,7 @@ Created <%= time_ago_in_words(@pic.created_at) %> ago</p>
 <%= tag.tag %>
 <% end %>
 </p>
+<%= render 'charges/form' %>
 
 <p><%= link_to 'Delete', pic_path(@pic),
                     method: :delete, data: { confirm: 'Are you sure?' } %></p>
