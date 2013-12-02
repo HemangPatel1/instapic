@@ -1,8 +1,10 @@
 <h2>Create Your Instapic Account</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+<%= form_for(resource, :as => resource_name, 
+      :url => registration_path(resource_name), 
+      :html => { :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
-
+  <div><%= f.file_field :avatar %></div>
   <div><%= f.label :username %><br />
   <%= f.text_field :username %></div>
 

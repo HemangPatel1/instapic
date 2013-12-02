@@ -1,7 +1,7 @@
 InstapicApp::Application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => :registrations }
-
+  resources :users
   resources :charges
   resources :tags
   resources :pics do
