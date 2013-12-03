@@ -2,7 +2,6 @@ class PicsController < ApplicationController
 
 before_filter :authenticate_user!, only: [:create, :destroy]
 before_action :check_permission, only: [:destroy]
-# after_action :send_owner_email, only: [:create]
 
 	def index
 		if params[:search]
