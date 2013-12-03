@@ -88,4 +88,15 @@ InstapicApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox2861.mailgun.org",
+    :user_name => "postmaster@sandbox2861.mailgun.org",
+    :password => "0u-zpjuvtlj7"
+  }
 end
