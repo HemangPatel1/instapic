@@ -2,7 +2,7 @@ class PicsController < ApplicationController
 
 before_filter :authenticate_user!, only: [:create, :destroy]
 before_action :check_permission, only: [:destroy]
-
+# after_action :send_owner_email, only: [:create]
 
 	def index
 		if params[:search]
@@ -36,7 +36,6 @@ before_action :check_permission, only: [:destroy]
 	def mypics
 		@pic = Pic.where(user_id: current_user).order("pics.created_at desc")
 	end
-
 
 private
 	def check_permission

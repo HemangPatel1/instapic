@@ -11,6 +11,7 @@ class Pic < ActiveRecord::Base
   	validates :image, :attachment_presence => true
 
   	after_save :trigger_websockets
+  	after_create :send_owner_email
 
 
   	def tag
@@ -38,6 +39,11 @@ class Pic < ActiveRecord::Base
 			username: user.username,
 			created_at: time_ago_in_words(created_at),
 			tags: tags.map(&:tag).join(" ") }
+	end
+
+	def send_owner_email
+	    mail = CreatedMailer.notify_owner(user.email, self)
+	    mail.deliver
 	end
 
 end

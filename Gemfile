@@ -6,6 +6,7 @@ group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'capybara-email'
 end
 
 gem 'newrelic_rpm'
